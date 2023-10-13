@@ -70,3 +70,6 @@ Route::get('/okaimono', function () {
 
 Route::get("/search", [HomeController::class, "search"]
 );
+
+Route::get("/item", [ItemController::class, "item"]
+);
