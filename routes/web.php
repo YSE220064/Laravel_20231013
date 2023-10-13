@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\HomeController;
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Http\Request;
@@ -29,29 +30,32 @@ Route::middleware('auth')->group(function () {
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 });
 
-Route::get('/about', function () {
+//Route::get('/about', function () {
     //return "ABOUTTO!";
-    return view("about");
-});
+    //return view("about");
+//});
+
+Route::get("/about", [HomeController::class, "about"]
+);
 
 Route::get('/item/{id}', function ($id) {
     $message = "Aitemu no Aidi wa; {$id}";
     return $message;
 });
 
-//Google検索みたいなルーティング
-Route::get('/search', function (Request $request) {
-    //dd($request);
-    // $keyword = $request->q;
-    // $message = "キーワードは{$keyword}です";
+// //Google検索みたいなルーティング
+// Route::get('/search', function (Request $request) {
+//     //dd($request);
+//     // $keyword = $request->q;
+//     // $message = "キーワードは{$keyword}です";
 
-    //連想配列データ
-    $data = [
-        'keyword' => $request->q
-    ];
-    // Viewファイルにデータを渡す
-    return view('search', $data);
-})->middleware(['auth', 'verified'])->name('search');
+//     //連想配列データ
+//     $data = [
+//         'keyword' => $request->q
+//     ];
+//     // Viewファイルにデータを渡す
+//     return view('search', $data);
+// })->middleware(['auth', 'verified'])->name('search');
 
 
 require __DIR__.'/auth.php';
@@ -64,3 +68,5 @@ Route::get('/okaimono', function () {
     return view('okaimono');
 })->middleware(['auth', 'verified'])->name('okaimono');
 
+Route::get("/search", [HomeController::class, "search"]
+);
