@@ -15,6 +15,12 @@
                     <x-nav-link :href="route('dashboard')" :active="request()->routeIs('dashboard')">
                         {{ __('DASSU BOODO') }}
                     </x-nav-link>
+                    <x-nav-link :href="route('okaimono')" :active="request()->routeIs('okaimono')">
+                        {{ __('OKAIMONO') }}
+                    </x-nav-link>
+                    <x-nav-link :href="route('search')" :active="request()->routeIs('search')">
+                        {{ __('Search') }}
+                    </x-nav-link>
                 </div>
             </div>
 

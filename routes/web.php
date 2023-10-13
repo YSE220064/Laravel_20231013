@@ -30,7 +30,8 @@ Route::middleware('auth')->group(function () {
 });
 
 Route::get('/about', function () {
-    return "ABOUTTO!";
+    //return "ABOUTTO!";
+    return view("about");
 });
 
 Route::get('/item/{id}', function ($id) {
@@ -38,10 +39,28 @@ Route::get('/item/{id}', function ($id) {
     return $message;
 });
 
+//Google検索みたいなルーティング
 Route::get('/search', function (Request $request) {
     //dd($request);
-    $message = "Kore wa nani ka na? = {$request->keyword}";
-    return $message;
-});
+    // $keyword = $request->q;
+    // $message = "キーワードは{$keyword}です";
+
+    //連想配列データ
+    $data = [
+        'keyword' => $request->q
+    ];
+    // Viewファイルにデータを渡す
+    return view('search', $data);
+})->middleware(['auth', 'verified'])->name('search');
+
 
 require __DIR__.'/auth.php';
+
+Route::get('/okaimono', function () {
+    return view('okaimono');
+});
+
+Route::get('/okaimono', function () {
+    return view('okaimono');
+})->middleware(['auth', 'verified'])->name('okaimono');
+
