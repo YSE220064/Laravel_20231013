@@ -3,11 +3,12 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>about</title>
+    <title>Document</title>
 </head>
 <body>
-
-<h1>about</h1>
-    
+    <h2>About</h2>
+    <div>
+        This is About Page.
+    </div>
 </body>
 </html>

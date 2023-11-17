@@ -6,7 +6,11 @@
     <title>Document</title>
 </head>
 <body>
-    <h2>検索結果</h2>
+    <h2>検索</h2>
+    <form action="/search" method="get">
+        <input type="text" name="q">
+        <button>Search</button>
+    </form>
     <h3>検索キーワード</h3>
     <p>{{ $keyword }}</p>
 </body>
